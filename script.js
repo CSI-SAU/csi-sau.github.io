@@ -473,8 +473,12 @@ document.addEventListener('DOMContentLoaded', () => {
             const closeModal = () => {
                 modalOverlay.classList.remove('visible');
             };
+        
 
-            registerBtn.addEventListener('click', openModal);
+            //REMOVE THE COMMENT TAG FROM THE NEXT LINE WHEN REGISTRATIONS ARE CLOSED!!!
+        
+        
+        //registerBtn.addEventListener('click', openModal);
             modalCloseBtn.addEventListener('click', closeModal);
             modalOverlay.addEventListener('click', (event) => {
                 if (event.target === modalOverlay) {
