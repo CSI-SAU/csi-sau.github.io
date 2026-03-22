@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Roboto:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600;700&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
     <link href="styles.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -82,7 +83,7 @@
         </ul>
     </nav>
 
-    <a href="https://forms.gle/7sZUnGXfrFwnSbKo6" target="_blank" id="register-btn">
+    <a  target="_blank" id="register-btn">
         <span>REGISTER</span>
     </a>
 
@@ -441,7 +442,7 @@
         <div class="video-overlay"></div>
 
         <div class="hero-content">
-            <h1>THIS IS CSI SAU</h1>
+            <h1 class="hero-opener" data-text="THIS IS CSI SAU">THIS IS CSI SAU</h1>
             <p>The algorithm behind innovation</p>
         </div>
 
@@ -491,7 +492,7 @@
 
     <section id="team" class="full-screen-section">
         <div class="team-container">
-            <h2 class="section-header">Our Team</h2>
+            <h2 class="section-header"><span class="team-glitch" data-text="Our Team">Our Team</span></h2>
             
             <!-- Leadership Section -->
             <div class="team-category">
@@ -594,7 +595,7 @@
             <div class="team-category">
                 <h3>The Crew</h3>
                 <div class="team-row">
-                    <div class="leadership-card">
+                    <div class="leadership-card president-card">
                         <div class="leadership-img">
                             <img src="media/syadav.jpg" 
                                 onerror="this.style.display='none'" 
@@ -749,58 +750,133 @@
     <section id="events" class="full-screen-section">
         <div class="events-container">
             <h2 class="section-header">Events</h2>
-            <div class="event-card">
-    <div class="event-banner" style="background: linear-gradient(45deg, #2C3E50, #3498db);">
-        <h3>SYNTAX</h3>
-        
-    </div>
-    
-    <div class="event-content">
-        <div class="event-header">
-            <div class="event-details">
-                <h2>SyntaX 2026</h2>
-                
-                <div class="event-date">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5" />
-                    </svg>
-                    <span>January 27th, 2026</span>
-                </div>
-                
-                <p class="event-description">
-                    SyntaX is CSI-SAU's premier coding competition that challenges programmers to solve complex algorithmic problems under time pressure. This intense battle of logic and speed brings together the brightest coding minds to debug, optimize, and compete for glory. Participants face multiple rounds of increasingly difficult challenges, testing their problem-solving skills, code efficiency, and ability to think under pressure. It's not just about writing code—it's about writing smart, efficient, and elegant solutions.
-                </p>
-            </div>
-        </div>
-        
-        <button class="event-register-btn" disabled>Registration Closed</button>
-    </div>
-</div>
-            <div class="event-card">
-                <div class="event-banner">
-                    <h3>AVISHKARX</h3>
-                    <div class="teddy-bear-container" id="teddy-bear"></div>
-                </div>
-                
-                <div class="event-content">
-                    <div class="event-header">
-                        <div class="event-details">
-                            <h2>AvishkarX</h2>
-                            
-                            <div class="event-date">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5" />
-                                </svg>
-                                <span>November 14-15th, 2025</span>
-                            </div>
-                            
-                            <p class="event-description">
-                                AvishkarX is the flagship ideathon of the CSI-SAU Student Chapter—an exciting, fast-paced innovation marathon where bright minds collaborate to solve real-world challenges. Participants form teams, brainstorm game-changing solutions, and pitch their ideas to a panel of experts. AvishkarX is more than just a competition; it's a launchpad for turning brilliant ideas into action, fostering learning, and building connections that last.                            </p>
-                        </div>
+
+            <div class="events-layout">
+                <article class="events-module">
+                    <div class="events-module-head">
+                        <h3>Flagship Events</h3>
+                        <p>Our premier competitions and large-scale showcases that define CSI-SAU's presence.</p>
                     </div>
-                    
-                    <button class="event-register-btn" disabled>Registration Closed</button>
-                </div>
+
+                    <div class="events-grid major-grid">
+                        <article class="event-card major-event-card upcoming-flagship-card">
+                            <div class="event-banner upcoming-flagship-banner">
+                                <span class="event-tier">UPCOMING</span>
+                                <h4>Next Major Event</h4>
+                            </div>
+
+                            <div class="event-content">
+                                <div class="event-title-row">
+                                    <h5>Coming This Year</h5>
+                                </div>
+                                <p class="event-date-time">Announcement Soon</p>
+                                <p class="event-description">
+                                    Exciting new flagship event in the works. Watch us transform ideas into innovation through competition, collaboration, and cutting-edge problem solving. Stay tuned!
+                                </p>
+                                <button class="event-register-btn" disabled>Details Coming</button>
+                            </div>
+                        </article>
+
+                        <article class="event-card major-event-card">
+                            <div class="event-banner syntax-banner">
+                                <span class="event-tier">OVER</span>
+                                <h4>SyntaX</h4>
+                            </div>
+
+                            <div class="event-content">
+                                <div class="event-title-row">
+                                    <h5>SyntaX 2026</h5>
+                                </div>
+                                <p class="event-date-time">January 27th, 2026 | 10:00 AM IST</p>
+                                <p class="event-description">
+                                    Our annual coding competition featuring multi-round problem solving, intense algorithmic challenges, and optimization battles where top coders compete for championship glory.
+                                </p>
+                                <button class="event-register-btn" disabled>Registration Closed</button>
+                            </div>
+                        </article>
+
+                        <article class="event-card major-event-card">
+                            <div class="event-banner avishkar-banner">
+                                <span class="event-tier">OVER</span>
+                                <h4>AvishkarX</h4>
+                            </div>
+
+                            <div class="event-content">
+                                <div class="event-title-row">
+                                    <h5>AvishkarX 2025</h5>
+                                </div>
+                                <p class="event-date-time">November 14th-15th, 2025 | 9:30 AM IST</p>
+                                <p class="event-description">
+                                    Our flagship ideathon where teams pitch innovative tech solutions to real-world problems through rapid brainstorming, mentorship sessions, and live presentations.
+                                </p>
+                                <button class="event-register-btn" disabled>Registration Closed</button>
+                            </div>
+                        </article>
+                    </div>
+                </article>
+
+                <article class="events-module">
+                    <div class="events-module-head">
+                        <h3>Mini Events</h3>
+                        <p>Focused sessions, expert talks, and community learning activities.</p>
+                    </div>
+
+                    <div class="events-grid minor-grid">
+                        <article class="event-card minor-event-card upcoming-mini-card">
+                            <div class="event-banner minor-banner-3-upcoming">
+                                <span class="event-tier">UPCOMING</span>
+                                <h4>Next Session</h4>
+                            </div>
+
+                            <div class="event-content">
+                                <div class="event-title-row">
+                                    <h5>Stay Tuned</h5>
+                                </div>
+                                <p class="event-date-time">Coming Soon</p>
+                                <p class="event-description">
+                                    We're planning our next mini event featuring expert insights and community engagement. Announcements coming soon on our social channels!
+                                </p>
+                                <button class="event-register-btn" disabled>Details Coming</button>
+                            </div>
+                        </article>
+
+                        <article class="event-card minor-event-card">
+                            <div class="event-banner minor-banner-1">
+                                <span class="event-tier">OVER</span>
+                                <h4>Interaction Session</h4>
+                            </div>
+
+                            <div class="event-content">
+                                <div class="event-title-row">
+                                    <h5>Interaction with Dr. A.K. Nayak</h5>
+                                </div>
+                                <p class="event-date-time">February 12th, 2025</p>
+                                <p class="event-description">
+                                    An exclusive interaction session with Dr. A.K. Nayak, featuring insightful discussions on current trends in technology and innovation within academia.
+                                </p>
+                                <button class="event-register-btn" disabled>Completed</button>
+                            </div>
+                        </article>
+
+                        <article class="event-card minor-event-card">
+                            <div class="event-banner minor-banner-2">
+                                <span class="event-tier">OVER</span>
+                                <h4>Expert Talk</h4>
+                            </div>
+
+                            <div class="event-content">
+                                <div class="event-title-row">
+                                    <h5>Responsible AI: Problems & Prospects</h5>
+                                </div>
+                                <p class="event-date-time">2025</p>
+                                <p class="event-description">
+                                    A thought-provoking talk by Atmadeep Ghoshal (Co-founder of Ataraxia Research, PhD Candidate at King's College London) on operationalizing responsible AI and post-training challenges in modern AI systems.
+                                </p>
+                                <button class="event-register-btn" disabled>Completed</button>
+                            </div>
+                        </article>
+                    </div>
+                </article>
             </div>
         </div>
     </section>
@@ -944,6 +1020,57 @@
             ></feComposite>
         </filter>
     </svg>
+    <script src="https://unpkg.com/powerglitch@latest/dist/powerglitch.min.js"></script>
+    <script>
+        const teamGlitchEl = document.querySelector('.team-glitch')
+        const teamSectionEl = document.querySelector('#team')
+
+        const glitchController = PowerGlitch.glitch('.team-glitch', {
+            playMode: 'manual',
+            glitchTimeMin: 200,
+            glitchTimeMax: 400,
+            glitchAmount: 2,
+            hideOverflow: false
+        })
+        let hasAutoGlitched = false
+
+        if (teamGlitchEl && teamSectionEl && glitchController) {
+            const stopGlitchAfterBurst = (durationMs = 420) => {
+                window.setTimeout(() => {
+                    glitchController.stopGlitch()
+                }, durationMs)
+            }
+
+            teamGlitchEl.addEventListener('mouseenter', () => {
+                glitchController.startGlitch()
+            })
+
+            teamGlitchEl.addEventListener('mouseleave', () => {
+                glitchController.stopGlitch()
+            })
+
+            const triggerAutoGlitch = () => {
+                if (hasAutoGlitched) return
+                hasAutoGlitched = true
+
+                glitchController.startGlitch()
+                stopGlitchAfterBurst(420)
+            }
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting && entry.intersectionRatio >= 0.45) {
+                        triggerAutoGlitch()
+                        observer.disconnect()
+                    }
+                })
+            }, {
+                threshold: [0.45]
+            })
+
+            observer.observe(teamSectionEl)
+        }
+    </script>
     <script type="module" src="script.js"></script>
 </body>
 </html>
