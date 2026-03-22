@@ -228,18 +228,51 @@ gsap.registerPlugin(ScrollTrigger);
 
        
         function setupScrollAnimations() {
-            // 1. Animate the Hero content OUT
-            gsap.to("#home .hero-content", {
-                scrollTrigger: {
+            const heroContent = document.querySelector("#home .hero-content");
+
+            if (heroContent) {
+                ScrollTrigger.create({
                     trigger: "#home",
-                    start: "top top",
-                    end: "bottom center", 
-                    scrub: true, 
-                },
-                scale: 0.8, 
-                opacity: 0, 
-                ease: "power1.in"
-            });
+                    start: "top 65%",
+                    end: "bottom 35%",
+                    onEnter: () => {
+                        gsap.to(heroContent, {
+                            scale: 1,
+                            opacity: 1,
+                            duration: 0.55,
+                            ease: "power2.out",
+                            overwrite: "auto"
+                        });
+                    },
+                    onEnterBack: () => {
+                        gsap.to(heroContent, {
+                            scale: 1,
+                            opacity: 1,
+                            duration: 0.55,
+                            ease: "power2.out",
+                            overwrite: "auto"
+                        });
+                    },
+                    onLeave: () => {
+                        gsap.to(heroContent, {
+                            scale: 0.85,
+                            opacity: 0,
+                            duration: 0.45,
+                            ease: "power2.in",
+                            overwrite: "auto"
+                        });
+                    },
+                    onLeaveBack: () => {
+                        gsap.to(heroContent, {
+                            scale: 0.85,
+                            opacity: 0,
+                            duration: 0.45,
+                            ease: "power2.in",
+                            overwrite: "auto"
+                        });
+                    }
+                });
+            }
         
             const sections = document.querySelectorAll('.full-screen-section');
             
@@ -306,59 +339,85 @@ gsap.registerPlugin(ScrollTrigger);
             const aboutText = document.querySelector('.about-text');
             const aboutCertificate = document.querySelector('.about-certificate-container');
 
-            gsap.to(aboutLogo, {
-                scrollTrigger: {
-                    trigger: aboutSection,
-                    start: "top 85%",
-                    end: "top 30%",
-                    scrub: true,
-                },
-                opacity: 1,
-                x: 0,
-                duration: 1.2,
-                ease: "power2.out"
-            });
+            if (aboutSection && aboutLogo && aboutText && aboutCertificate) {
+                const showAboutContent = () => {
+                    gsap.to(aboutLogo, {
+                        opacity: 1,
+                        x: 0,
+                        duration: 0.8,
+                        ease: "power2.out",
+                        overwrite: "auto"
+                    });
 
-            gsap.to(aboutText, {
-                scrollTrigger: {
-                    trigger: aboutSection,
-                    start: "top 85%",
-                    end: "top 30%",
-                    scrub: true,
-                },
-                opacity: 1,
-                x: 0,
-                duration: 1.2,
-                ease: "power2.out",
-                delay: 0.2
-            });
+                    gsap.to(aboutText, {
+                        opacity: 1,
+                        x: 0,
+                        duration: 0.8,
+                        ease: "power2.out",
+                        delay: 0.1,
+                        overwrite: "auto"
+                    });
 
-            gsap.to(aboutCertificate, {
-                scrollTrigger: {
-                    trigger: aboutSection,
-                    start: "top 70%",
-                    end: "top 10%",
-                    scrub: true,
-                },
-                opacity: 1,
-                y: 0,
-                duration: 1.5,
-                ease: "power2.out",
-                delay: 0.4
-            });
+                    gsap.to(aboutCertificate, {
+                        opacity: 1,
+                        y: 0,
+                        duration: 0.95,
+                        ease: "power2.out",
+                        delay: 0.2,
+                        overwrite: "auto"
+                    });
 
-            gsap.to(".about-certificate", {
-                scrollTrigger: {
+                    gsap.to(".about-certificate", {
+                        boxShadow: "0 0 30px rgba(212, 175, 55, 0.4)",
+                        duration: 0.6,
+                        ease: "power2.out",
+                        overwrite: "auto"
+                    });
+                };
+
+                const hideAboutContent = () => {
+                    gsap.to(aboutLogo, {
+                        opacity: 0,
+                        x: -80,
+                        duration: 0.45,
+                        ease: "power2.in",
+                        overwrite: "auto"
+                    });
+
+                    gsap.to(aboutText, {
+                        opacity: 0,
+                        x: 80,
+                        duration: 0.45,
+                        ease: "power2.in",
+                        overwrite: "auto"
+                    });
+
+                    gsap.to(aboutCertificate, {
+                        opacity: 0,
+                        y: 50,
+                        duration: 0.45,
+                        ease: "power2.in",
+                        overwrite: "auto"
+                    });
+
+                    gsap.to(".about-certificate", {
+                        boxShadow: "0 0 25px rgba(212, 175, 55, 0.3)",
+                        duration: 0.35,
+                        ease: "power2.in",
+                        overwrite: "auto"
+                    });
+                };
+
+                ScrollTrigger.create({
                     trigger: aboutSection,
-                    start: "top 50%",
-                    end: "bottom 50%",
-                    scrub: true,
-                },
-                boxShadow: "0 0 30px rgba(212, 175, 55, 0.4)",
-                duration: 2,
-                yoyo: true,
-                repeat: 1
-            });
+                    start: "top 72%",
+                    end: "bottom 28%",
+                    onEnter: showAboutContent,
+                    onEnterBack: showAboutContent,
+                    onLeave: hideAboutContent,
+                    onLeaveBack: hideAboutContent
+                });
+            }
 
             const teamSection = document.getElementById('team');
             const leadershipCards = document.querySelectorAll('.leadership-card');
@@ -478,7 +537,7 @@ document.addEventListener('DOMContentLoaded', () => {
             //REMOVE THE COMMENT TAG FROM THE NEXT LINE WHEN REGISTRATIONS ARE CLOSED!!!
         
         
-        //registerBtn.addEventListener('click', openModal);
+        registerBtn.addEventListener('click', openModal);
             modalCloseBtn.addEventListener('click', closeModal);
             modalOverlay.addEventListener('click', (event) => {
                 if (event.target === modalOverlay) {
@@ -850,6 +909,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     camera.position.z = 4;
 
                     const container = document.getElementById('teddy-bear');
+                    if (!container) return;
+
                     renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
                     renderer.setSize(container.offsetWidth, container.offsetHeight);
                     container.appendChild(renderer.domElement);
@@ -1137,4 +1198,49 @@ if (mobileRegisterBtn) {
 
 document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') closeMobileMenu();
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const cards = document.querySelectorAll('#team .leadership-card');
+    const canHover = window.matchMedia('(hover: hover)').matches;
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let activeCard = null;
+
+    if (!cards.length || !canHover || reducedMotion) return;
+
+    const resetCardGlow = (card) => {
+        if (!card) return;
+        card.style.setProperty('--card-glow-opacity', '0');
+    };
+
+    const activateCardGlow = (card, event) => {
+        if (!card) return;
+        if (activeCard && activeCard !== card) {
+            resetCardGlow(activeCard);
+        }
+        activeCard = card;
+        if (event) {
+            const rect = card.getBoundingClientRect();
+            const x = event.clientX - rect.left;
+            const y = event.clientY - rect.top;
+            card.style.setProperty('--card-glow-x', `${x}px`);
+            card.style.setProperty('--card-glow-y', `${y}px`);
+        }
+        card.style.setProperty('--card-glow-opacity', '0.72');
+    };
+
+    cards.forEach((card) => {
+        card.addEventListener('pointerenter', (event) => {
+            activateCardGlow(card, event);
+        });
+
+        card.addEventListener('pointermove', (event) => {
+            activateCardGlow(card, event);
+        });
+
+        card.addEventListener('pointerleave', () => {
+            resetCardGlow(card);
+            if (activeCard === card) activeCard = null;
+        });
+    });
 });
