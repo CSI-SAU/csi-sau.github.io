@@ -1251,14 +1251,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const toast = document.getElementById('event-toast');
     if (!toast) return;
     const closeBtn = document.getElementById('event-toast-close');
-    const STORAGE_KEY = 'techverse-toast-v4';
+    const STORAGE_KEY = 'techverse-toast-v6';
     let dismissed = false;
     try { dismissed = sessionStorage.getItem(STORAGE_KEY) === '1'; } catch (_) {}
 
-    const show = () => toast.classList.add('visible');
+    const show = () => {
+        toast.classList.add('visible');
+        toast.addEventListener('animationend', (e) => {
+            if (e.animationName === 'event-toast-enter' || e.animationName === 'event-toast-enter-mobile') {
+                toast.classList.add('settled');
+            }
+        }, { once: true });
+    };
     const dismiss = (e) => {
         if (e) { e.preventDefault(); e.stopPropagation(); }
-        toast.classList.remove('visible');
+        toast.classList.remove('visible', 'settled');
         toast.classList.add('dismissed');
         try { sessionStorage.setItem(STORAGE_KEY, '1'); } catch (_) {}
     };
