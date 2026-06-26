@@ -1,3 +1,6 @@
+import gsap from 'https://esm.sh/gsap@3.12.5'
+import { ScrollTrigger } from 'https://esm.sh/gsap@3.12.5/ScrollTrigger'
+
 // --- Binary Rain Animation Logic ---
         const canvas = document.getElementById('binary-rain-canvas');
         const ctx = canvas.getContext('2d');
@@ -69,8 +72,6 @@
 
             }, animationDuration);
         };
-import gsap from 'https://cdn.skypack.dev/gsap@3.12.0'
-import { ScrollTrigger } from 'https://cdn.skypack.dev/gsap@3.12.0/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -1244,3 +1245,32 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+// --- Event Toast (TechVerse upcoming) ---
+(() => {
+    const toast = document.getElementById('event-toast');
+    if (!toast) return;
+    const closeBtn = document.getElementById('event-toast-close');
+    const STORAGE_KEY = 'techverse-toast-v4';
+    let dismissed = false;
+    try { dismissed = sessionStorage.getItem(STORAGE_KEY) === '1'; } catch (_) {}
+
+    const show = () => toast.classList.add('visible');
+    const dismiss = (e) => {
+        if (e) { e.preventDefault(); e.stopPropagation(); }
+        toast.classList.remove('visible');
+        toast.classList.add('dismissed');
+        try { sessionStorage.setItem(STORAGE_KEY, '1'); } catch (_) {}
+    };
+
+    closeBtn?.addEventListener('click', dismiss);
+    toast.addEventListener('click', () => {
+        try { sessionStorage.setItem(STORAGE_KEY, '1'); } catch (_) {}
+    });
+
+    if (dismissed) return;
+
+    const reveal = () => setTimeout(show, 2400);
+    if (document.readyState === 'complete') reveal();
+    else window.addEventListener('load', reveal, { once: true });
+})();
