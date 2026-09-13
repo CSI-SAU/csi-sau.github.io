@@ -103,6 +103,7 @@ function renderModal(profileKey) {
         <div class="modal-leader-info">
           <h4>${profile.leaders[0].name}</h4>
           <p>${profile.leaders[0].role}</p>
+          <a class="profile-link" href="https://www.linkedin.com/company/csi-sau-student-chapter/" target="_blank" rel="noreferrer">LinkedIn</a>
         </div>
       </div>
       <div class="member-panel">
