@@ -1,0 +1,32 @@
+{
+  "aavishkarx": [
+    { "group": "day1", "src": "media/AavishkarX 2025/Day1/IMG-20251114-WA0027.jpg", "alt": "AavishkarX day one stage" },
+    { "group": "day1", "src": "media/AavishkarX 2025/Day1/IMG-20251114-WA0032.jpg", "alt": "AavishkarX day one session" },
+    { "group": "day1", "src": "media/AavishkarX 2025/Day1/IMG_20251114_170206.jpg", "alt": "AavishkarX public pitch" },
+    { "group": "day2", "src": "media/AavishkarX 2025/Day2/IMG-20251115-WA0034.jpg", "alt": "AavishkarX day two keynote" },
+    { "group": "day2", "src": "media/AavishkarX 2025/Day2/IMG-20251115-WA0044.jpg", "alt": "AavishkarX day two workshop" },
+    { "group": "day2", "src": "media/AavishkarX 2025/Day2/IMG_20251115_124807.jpg", "alt": "AavishkarX judging panel" },
+    { "group": "day3", "src": "media/AavishkarX 2025/Day3/IMG-20251117-WA0024.jpg", "alt": "AavishkarX day three stage" },
+    { "group": "day3", "src": "media/AavishkarX 2025/Day3/IMG_20251117_133745.jpg", "alt": "AavishkarX day three workshop" },
+    { "group": "day3", "src": "media/AavishkarX 2025/Day3/IMG_20251117_134000.jpg", "alt": "AavishkarX team presentation" },
+    { "group": "bts", "src": "media/AavishkarX 2025/BTS/IMG_20251029_230057.jpg", "alt": "Backstage prep" },
+    { "group": "bts", "src": "media/AavishkarX 2025/BTS/IMG_20251029_230207.jpg", "alt": "AavishkarX volunteer moment" },
+    { "group": "bts", "src": "media/AavishkarX 2025/BTS/IMG_20251029_230036.jpg", "alt": "Backstage collaboration" }
+  ],
+  "syntaxx": [
+    { "src": "media/SyntaX 2026/IMG-20260127-WA0056.jpg", "alt": "SyntaX stage view" },
+    { "src": "media/SyntaX 2026/IMG-20260127-WA0064.jpg", "alt": "SyntaX participants" },
+    { "src": "media/SyntaX 2026/IMG_20260127_120732.jpg", "alt": "SyntaX coding challenge" },
+    { "src": "media/SyntaX 2026/IMG_20260127_123753.jpg", "alt": "SyntaX participant focus" },
+    { "src": "media/SyntaX 2026/IMG_20260127_144257.jpg", "alt": "SyntaX audience section" },
+    { "src": "media/SyntaX 2026/IMG_20260127_144547.jpg", "alt": "SyntaX finalists" }
+  ],
+  "symposium": [
+    { "src": "media/Tech-Symposium/IMG_20260501_100719.jpg", "alt": "Tech-Symposium stage photo" },
+    { "src": "media/Tech-Symposium/IMG_20260501_100924.jpg", "alt": "Tech-Symposium attendee interaction" },
+    { "src": "media/Tech-Symposium/IMG_20260501_101104.jpg", "alt": "Tech-Symposium presenter" },
+    { "src": "media/Tech-Symposium/IMG_20260501_104323.jpg", "alt": "Tech-Symposium panel moment" },
+    { "src": "media/Tech-Symposium/IMG_20260501_112154.jpg", "alt": "Tech-Symposium audience" },
+    { "src": "media/Tech-Symposium/IMG_20260501_112225.jpg", "alt": "Tech-Symposium networking" }
+  ]
+}
