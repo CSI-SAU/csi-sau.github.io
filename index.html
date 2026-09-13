@@ -1,1084 +1,166 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CSI SAU</title>
+    <meta name="description" content="CSI SAU is a student chapter of the Computer Society of India at South Asian University, building a vibrant technology community." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="brand-wrap"><a href="#home" class="brand-mark" aria-label="CSI SAU home">CSI SAU</a></div>
+      <nav class="top-nav" aria-label="Main navigation">
+        <a href="#home" class="active">Home</a>
+        <a href="#about">About</a>
+        <a href="#team">Team</a>
+        <a href="events.html">Events</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a class="register-button" href="https://forms.gle/7sZUnGXfrFwnSbKo6" target="_blank" rel="noreferrer">Register</a>
+      <button class="menu-button" type="button" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </header>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Roboto:wght@300;400;600&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600;700&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
-    <link href="styles.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Three.js libraries -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/simplex-noise@2.4.0/simplex-noise.min.js"></script>
-    
-    <!-- Anime.js for button animation -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
-
-</head>
-<body>
-
-    <div id="loader">
-        <canvas id="binary-rain-canvas"></canvas>
+    <div class="mobile-menu" aria-label="Mobile menu" aria-hidden="true">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#team">Team</a>
+      <a href="events.html">Events</a>
+      <a href="#contact">Contact</a>
+      <a class="register-link" href="https://forms.gle/7sZUnGXfrFwnSbKo6" target="_blank" rel="noreferrer">REGISTER</a>
     </div>
 
-    <a id="event-toast" href="https://lu.ma/d8v5vw7v" target="_blank" rel="noopener">
-        <button id="event-toast-close" type="button" aria-label="Dismiss">&times;</button>
-        <div class="event-toast-inner">
-            <div class="event-toast-title">TechVerse <span class="event-toast-arrow">→</span></div>
-            <div class="event-toast-sub">Jul 3–4 · grab a spot</div>
-        </div>
-    </a>
-
-<div class="mobile-nav">
-    <div class="mobile-nav-container">
-        <div class="mobile-nav-logo">CSI SAU</div>
-        <div class="hamburger-menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-    </div>
-</div>
-
-<div class="mobile-menu">
-    <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#team">Team</a></li>
-        <li><a href="#events">Events
-            <span class="mobile-gold-indicator"></span>
-        </a></li>
-        <li><a href="#contact">Contact</a></li>
-    </ul>
-    <a href="https://forms.gle/7sZUnGXfrFwnSbKo6" target="_blank" class="mobile-register-btn">REGISTER</a>
-</div>
-
-<div class="mobile-overlay"></div>
-
-    <nav>
-        <ul aria-hidden="true" class="lit">
-            <li>Home</li>
-            <li>About</li>
-            <li>Team</li>
-            <li>Events</li>
-            <li>Contact</li>
-        </ul>
-        <ul class="content">
-            <li>
-                <a data-active="true" href="#home"><span>Home</span></a>
-            </li>
-            <li>
-                <a href="#about"><span>About</span></a>
-            </li>
-            <li>
-                <a href="#team"><span>Team</span></a>
-            </li>
-            <li>
-                <a href="#events"><span>Events</span>
-                    <!-- GOLD INDICATOR -->
-                    <div class="gold-indicator"></div>
-                </a>
-            </li>
-            <li>
-                <a href="#contact"><span>Contact</span></a>
-            </li>
-        </ul>
-    </nav>
-
-    <a  target="_blank" id="register-btn">
-        <span>REGISTER</span>
-    </a>
-
-    <div id="modal-overlay">
-        <div id="modal-content">
-            <button id="modal-close-btn">&times;</button>
-            <div class="modal-header">
-                <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
-                </svg>
-                <h3>Registrations Closed</h3>
-            </div>
-            <p>We are not accepting new registrations at this time. Please follow our social channels for updates on our next membership drive!</p>
-        </div>
-    </div>
-
-    <div id="technical-modal" class="team-modal-overlay">
-        <div class="team-modal-content">
-            <button class="team-modal-close">
-                <span></span>
-                <span></span>
-            </button>
-            <div class="team-modal-header">
-                <h2>Technical Team</h2>
-                <p>The innovation engine of CSI-SAU. This team builds our projects, conducts hands-on coding workshops, and innovates with new technologies to keep our community skilled and future-ready.</p>
-            </div>
-            <div class="team-modal-body">
-                <div class="team-leaders">
-                    <div class="team-leader">
-                        <img src="media/abhattacharyya.jpeg" alt="Lead" class="team-leader-img" style="object-position: center 12%;">
-                        <div class="team-leader-info">
-                            <h4>Arkodyuti Bhattacharyya</h4>
-                            <p>Team Lead</p>
-                            <a href="https://in.linkedin.com/in/arkodyuti-bhattacharyya-132200318" class="linkedin-icon" target="_blank">
-                                <img src="media/linkedinlogo.png" alt="LinkedIn">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="team-leader co-lead">
-                        <img src="https://placehold.co/150x150" alt="Co-Lead" class="team-leader-img">
-                        <div class="team-leader-info">
-                            <h4>Michael Chen</h4>
-                            <p>Co-Lead</p>
-                            <a href="https://linkedin.com" class="linkedin-icon" target="_blank">
-                                <img src="media/linkedinlogo.png" alt="LinkedIn">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="team-members">
-                    <h3>Team Members</h3>
-                    <div class="members-list">
-                        <div class="member-item">Rohit Kumar</div>
-                        <div class="member-item">Tanmay Madam</div>
-                        <div class="member-item">Sania Shanty</div>
-                        <div class="member-item">Abhinav Gupta</div>
-                        <div class="member-item">Nakshatra Tomar</div>
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="research-modal" class="team-modal-overlay">
-        <div class="team-modal-content">
-            <button class="team-modal-close">
-                <span></span>
-                <span></span>
-            </button>
-            <div class="team-modal-header">
-                <h2>Research & Development</h2>
-                <p>The forward-thinkers of the chapter. This team explores emerging technologies, researches new concepts, and works on long-term projects, pushing the boundaries of innovation for CSI-SAU.</p>
-            </div>
-            <div class="team-modal-body">
-                <div class="team-leaders">
-                    <div class="team-leader">
-                        <img src="media/aadivi.jpg" alt="Lead" class="team-leader-img">
-                        <div class="team-leader-info">
-                            <h4>Adivi Ananya</h4>
-                            <p>Team Lead</p>
-                            <a href="https://in.linkedin.com/in/ananya-adivi-9b6056345" class="linkedin-icon" target="_blank">
-                                <img src="media/linkedinlogo.png" alt="LinkedIn">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="team-leader co-lead">
-                        <img src="https://placehold.co/150x150" alt="Co-Lead" class="team-leader-img">
-                        <div class="team-leader-info">
-                            <h4>Lisa Thompson</h4>
-                            <p>Co-Lead</p>
-                            <a href="https://linkedin.com" class="linkedin-icon" target="_blank">
-                                <img src="media/linkedinlogo.png" alt="LinkedIn">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="team-members">
-                    <h3>Team Members</h3>
-                    <div class="members-list">
-                        <div class="member-item">Anuja</div>
-                        <div class="member-item">Suyash</div>
-                        <div class="member-item">Raghav</div>
-                        <div class="member-item">Anshita</div>
-                        <div class="member-item">Madan</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="finance-modal" class="team-modal-overlay">
-        <div class="team-modal-content">
-            <button class="team-modal-close">
-                <span></span>
-                <span></span>
-            </button>
-            <div class="team-modal-header">
-                <h2>Finance Team</h2>
-                </p>The financial backbone of the chapter. This team manages the budget, tracks transactions, and handles sponsorships, ensuring the resources are in place to power all our initiatives.</p>
-            </div>
-            <div class="team-modal-body">
-                <div class="team-leaders">
-                    <div class="team-leader">
-                        <img src="media/ytomar.jpg" alt="Lead" class="team-leader-img">
-                        <div class="team-leader-info">
-                            <h4>Yash Tomar</h4>
-                            <p>Team Lead</p>
-                            <a href="https://in.linkedin.com/in/yash-tomar-9b9b51353" class="linkedin-icon" target="_blank">
-                                <img src="media/linkedinlogo.png" alt="LinkedIn">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="team-leader co-lead">
-                        <img src="https://placehold.co/150x150" alt="Co-Lead" class="team-leader-img">
-                        <div class="team-leader-info">
-                            <h4>Brian Clark</h4>
-                            <p>Co-Lead</p>
-                            <a href="https://linkedin.com" class="linkedin-icon" target="_blank">
-                                <img src="media/linkedinlogo.png" alt="LinkedIn">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="team-members">
-                    <h3>Team Members</h3>
-                    <div class="members-list">
-                        <div class="member-item">Swarnojjwal</div>
-                        <div class="member-item">Rushil</div>
-                        <div class="member-item">Keshav</div>
-                        <div class="member-item">Samriddhi</div>
-                        <div class="member-item">Akansha</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="design-modal" class="team-modal-overlay">
-        <div class="team-modal-content">
-            <button class="team-modal-close">
-                <span></span>
-                <span></span>
-            </button>
-            <div class="team-modal-header">
-                <h2>Design & Media</h2>
-                <p>The creative force of CSI-SAU. This team designs everything you see, from eye-catching posters and social media graphics to UI/UX mockups, defining the "CSI vibe" and making our brand visually stunning.</p>
-            </div>
-            <div class="team-modal-body">
-                <div class="team-leaders">
-                    <div class="team-leader">
-                        <img src="media/ibajpai.jpg" alt="Lead" class="team-leader-img">
-                        <div class="team-leader-info">
-                            <h4>Ipsita Bajpai</h4>
-                            <p>Team Lead</p>
-                            <a href="https://in.linkedin.com/in/ipsita-bajpai-157276352" class="linkedin-icon" target="_blank">
-                                <img src="media/linkedinlogo.png" alt="LinkedIn">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="team-leader co-lead">
-                        <img src="https://placehold.co/150x150" alt="Co-Lead" class="team-leader-img">
-                        <div class="team-leader-info">
-                            <h4>Jason Miller</h4>
-                            <p>Co-Lead</p>
-                            <a href="https://linkedin.com" class="linkedin-icon" target="_blank">
-                                <img src="media/linkedinlogo.png" alt="LinkedIn">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="team-members">
-                    <h3>Team Members</h3>
-                    <div class="members-list">
-                        <div class="member-item">Vedansh</div>
-                        <div class="member-item">Upasana</div>
-                        <div class="member-item">Suruchi</div>
-                        <div class="member-item">Sanskriti</div>
-                        <div class="member-item">Shaurya</div>
-                        <div class="member-item">Parv</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="pr-modal" class="team-modal-overlay">
-        <div class="team-modal-content">
-            <button class="team-modal-close">
-                <span></span>
-                <span></span>
-            </button>
-            <div class="team-modal-header">
-                <h2>Public Relations</h2>
-                <p>The voice of CSI-SAU. This team builds our public brand, manages media relations, and forges strategic collaborations, creating the "buzz" for our events.</p>
-            </div>
-            <div class="team-modal-body">
-                <div class="team-leaders">
-                    <div class="team-leader">
-                        <img src="media/mislam.jpg" alt="Lead" class="team-leader-img">
-                        <div class="team-leader-info">
-                            <h4>Misbah Ul Islam</h4>
-                            <p>Team Lead</p>
-                            <a href="https://in.linkedin.com/in/misbah-ul-islam-0501b2323" class="linkedin-icon" target="_blank">
-                                <img src="media/linkedinlogo.png" alt="LinkedIn">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="team-leader co-lead">
-                        <img src="https://placehold.co/150x150" alt="Co-Lead" class="team-leader-img">
-                        <div class="team-leader-info">
-                            <h4>Thomas Walker</h4>
-                            <p>Co-Lead</p>
-                            <a href="https://linkedin.com" class="linkedin-icon" target="_blank">
-                                <img src="media/linkedinlogo.png" alt="LinkedIn">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="team-members">
-                    <h3>Team Members</h3>
-                    <div class="members-list">
-                        <div class="member-item">Yajat Krishnan</div>
-                        <div class="member-item">Chitra</div>
-                        <div class="member-item">Sudeepta</div>
-                        <div class="member-item">Huzur</div>
-                        <div class="member-item">Pankul</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="events-modal" class="team-modal-overlay">
-        <div class="team-modal-content">
-            <button class="team-modal-close">
-                <span></span>
-                <span></span>
-            </button>
-            <div class="team-modal-header">
-                <h2>Event Management</h2>
-                <p>The master planners of CSI-SAU. This team handles all logistics, coordination, and on-ground management to transform ideas into seamless, successful, and memorable events.</p>
-            </div>
-            <div class="team-modal-body">
-                <div class="team-leaders">
-                    <div class="team-leader">
-                        <img src="media/spsingh.jpg" alt="Lead" class="team-leader-img">
-                        <div class="team-leader-info">
-                            <h4>Surya P. Singh</h4>
-                            <p>Team Lead</p>
-                            <a href="https://in.linkedin.com/in/surya-p-singh-95176b343" class="linkedin-icon" target="_blank">
-                                <img src="media/linkedinlogo.png" alt="LinkedIn">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="team-leader co-lead">
-                        <img src="https://placehold.co/150x150" alt="Co-Lead" class="team-leader-img">
-                        <div class="team-leader-info">
-                            <h4>Megan Carter</h4>
-                            <p>Co-Lead</p>
-                            <a href="https://linkedin.com" class="linkedin-icon" target="_blank">
-                                <img src="media/linkedinlogo.png" alt="LinkedIn">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="team-members">
-                    <h3>Team Members</h3>
-                    <div class="members-list">
-                        <div class="member-item">Sabhyata</div>
-                        <div class="member-item">Vipin</div>
-                        <div class="member-item">Rajnath</div>
-                        <div class="member-item">Nikhil Anand</div>
-                        <div class="member-item">Vishakha</div>
-                        <div class="member-item">Prateek Yadav</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="documentation-outreach-modal" class="team-modal-overlay">
-        <div class="team-modal-content">
-            <button class="team-modal-close">
-                <span></span>
-                <span></span>
-            </button>
-            <div class="team-modal-header">
-                <h2>Documentation & Outreach</h2>
-                <p>The storytellers of CSI-SAU. This team documents all our events, writes formal communications, and conducts outreach to connect with new members and partners, preserving our legacy and expanding our reach.</p>
-            </div>
-            <div class="team-modal-body">
-                <div class="team-leaders">
-                    <div class="team-leader">
-                        <img src="media/mprasad.jpg" alt="Lead" class="team-leader-img">
-                        <div class="team-leader-info">
-                            <h4>Mukund Prasad</h4>
-                            <p>Team Lead</p>
-                            <a href="https://in.linkedin.com/in/mukund-prasad" class="linkedin-icon" target="_blank">
-                                <img src="media/linkedinlogo.png" alt="LinkedIn">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="team-leader co-lead">
-                        <img src="https://placehold.co/150x150" alt="Co-Lead" class="team-leader-img">
-                        <div class="team-leader-info">
-                            <h4>Kevin Nelson</h4>
-                            <p>Co-Lead</p>
-                            <a href="https://linkedin.com" class="linkedin-icon" target="_blank">
-                                <img src="media/linkedinlogo.png" alt="LinkedIn">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="team-members">
-                    <h3>Team Members</h3>
-                    <div class="members-list">
-                        <div class="member-item">Rabiya</div>
-                        <div class="member-item">Aniket Gupta</div>
-                        <div class="member-item">Vipul Garg</div>
-                        <div class="member-item">Ajay Singh</div>
-                        <div class="member-item">Samarth</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <section id="home" class="full-screen-section">
-
-        <video id="bg-video" autoplay loop muted playsinline>
-            <source src="https://cdn.pixabay.com/video/2019/10/10/27725-365890983_large.mp4" type="video/mp4">
-            Your browser does not support the video tag.
+    <main>
+      <section id="home" class="hero-section">
+        <video id="bg-video" autoplay muted loop playsinline poster="media/csisaulogo.jpg">
+          <source src="https://cdn.pixabay.com/video/2019/10/10/27725-365890983_large.mp4" type="video/mp4" />
         </video>
+        <div class="hero-overlay"></div>
+        <div class="hero-content" data-reveal>
+          <p class="eyebrow">South Asian University</p>
+          <h1>CSI SAU</h1>
+          <p class="lead">We build tools, host technical sprints, and help students turn ideas into working systems.</p>
+          <div class="hero-actions">
+            <a href="events.html" class="primary-btn">Explore Events</a>
+            <a href="#about" class="secondary-btn">About Us</a>
+          </div>
+        </div>
+        <a class="scroll-cue" href="#about" aria-label="Scroll to about section">↓</a>
+      </section>
 
-        <div class="video-overlay"></div>
+      <section id="about" class="about-section">
+        <div class="section-heading" data-reveal>
+          <p class="eyebrow">Who we are</p>
+          <h2>About Us</h2>
+        </div>
+        <div class="about-layout" data-reveal>
+          <div class="about-crest"><img src="media/csisaulogo.jpg" alt="CSI SAU logo" /></div>
+          <div class="about-copy">
+            <p>The CSI-SAU Student Chapter is South Asian University's dynamic hub for technology and innovation. We are a passionate community of student developers, coders, and creators dedicated to building a vibrant tech culture.</p>
+            <p>We connect our members with the future of computer science by hosting workshops, coding competitions, and guest lectures from industry leaders.</p>
+            <p class="affiliation-note">Officially affiliated with the <a href="https://www.csiindia.org/" target="_blank" rel="noreferrer">Computer Society of India</a></p>
+          </div>
+        </div>
+        <div class="recognition-card" data-reveal>
+          <h3>Official Recognition</h3>
+          <button class="certificate-trigger" type="button" aria-label="View full certificate">
+            <img src="media/certificate.jpg" alt="CSI SAU certificate" loading="lazy" />
+          </button>
+        </div>
+      </section>
 
-        <div class="hero-content">
-            <h1 class="hero-opener" data-text="THIS IS CSI SAU">THIS IS CSI SAU</h1>
-            <p>The algorithm behind innovation</p>
+      <section id="team" class="team-section">
+        <div class="section-heading" data-reveal>
+          <p class="eyebrow">The people behind it</p>
+          <h2>Our Team</h2>
+        </div>
+        <div class="leadership-grid" data-reveal>
+          <article class="person-card leader-card dean-card"><img src="media/pmuhuri.jpg" alt="Dr. Pranab Muhuri" loading="lazy" /><div class="person-info"><h3>Dr. Pranab Muhuri</h3><p>Dean</p></div></article>
+          <article class="person-card leader-card dean-card"><img src="media/rrastogi.jpeg" alt="Dr. Reshma Rastogi" loading="lazy" /><div class="person-info"><h3>Dr. Reshma Rastogi</h3><p>Associate Dean</p></div></article>
+          <article class="person-card leader-card counsellor-card"><img src="media/sssingh.jpeg" alt="Dr. Shashank Sheshar Singh" loading="lazy" /><div class="person-info"><h3>Dr. Shashank Sheshar Singh</h3><p>Chief Branch Counsellor</p></div></article>
+          <article class="person-card leader-card advisor-card"><img src="media/tseth.jpg" alt="Dr. Taniya Seth" loading="lazy" /><div class="person-info"><h3>Dr. Taniya Seth</h3><p>Faculty Advisor</p></div></article>
+          <article class="person-card leader-card advisor-card"><img src="media/abhamini.jpg" alt="Dr. Ashwini Bhamini" loading="lazy" /><div class="person-info"><h3>Dr. Ashwini Bhamini</h3><p>Faculty Advisor</p></div></article>
+        </div>
+        <div class="team-grid" data-reveal>
+          <article class="team-card technical"><div class="team-card-inner"><span>Technical</span><button type="button" class="explore-btn" data-team="technical">Explore</button></div></article>
+          <article class="team-card research"><div class="team-card-inner"><span>Research &amp; Development</span><button type="button" class="explore-btn" data-team="research">Explore</button></div></article>
+          <article class="team-card finance"><div class="team-card-inner"><span>Finance</span><button type="button" class="explore-btn" data-team="finance">Explore</button></div></article>
+          <article class="team-card design"><div class="team-card-inner"><span>Design &amp; Media</span><button type="button" class="explore-btn" data-team="design">Explore</button></div></article>
+          <article class="team-card public-relations"><div class="team-card-inner"><span>Public Relations</span><button type="button" class="explore-btn" data-team="pr">Explore</button></div></article>
+          <article class="team-card event-management"><div class="team-card-inner"><span>Event Management</span><button type="button" class="explore-btn" data-team="events">Explore</button></div></article>
+          <article class="team-card docs"><div class="team-card-inner"><span>Documentation &amp; Outreach</span><button type="button" class="explore-btn" data-team="documentation-outreach">Explore</button></div></article>
+        </div>
+      </section>
+
+      <section id="events" class="events-preview">
+        <div class="section-heading events-heading" data-reveal>
+          <div><p class="eyebrow">What we create</p><h2>Events</h2></div>
+          <a href="events.html" class="text-link">View all highlights</a>
+        </div>
+        <div class="event-preview-grid" data-reveal>
+          <article class="preview-card accent-card"><div class="card-badge">Flagship</div><h3>AavishkarX 2025</h3><p>Our flagship ideathon where teams pitch innovative solutions to real-world challenges.</p><span>November 14-15, 2025</span></article>
+          <article class="preview-card"><div class="card-badge">Competition</div><h3>SyntaX 2026</h3><p>A coding competition featuring multi-round problem solving and technical precision.</p><span>January 27, 2026</span></article>
+          <article class="preview-card"><div class="card-badge">Forum</div><h3>Tech-Symposium</h3><p>Conversations, insights, and community exchange around research and emerging technology.</p><span>Gathering of ideas</span></article>
         </div>
 
-        <a href="#about" class="scroll-down-arrow-link">
-            <svg class="scroll-down-arrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
-            </svg>
-        </a>
+        <div class="mini-event-wrap" data-reveal>
+          <div class="mini-event-head">
+            <p class="eyebrow">Mini Events</p>
+            <h3>Focused sessions and community learning</h3>
+          </div>
 
-    </section>
-
-        <section id="about" class="full-screen-section">
-        <!-- Three.js wave background container -->
-        <div id="wave-background-container">
-            <canvas id="wave-background"></canvas>
-            <div class="wave-info"></div>
+          <div class="mini-event-grid">
+            <article class="mini-event-item">
+              <span class="mini-badge">Upcoming</span>
+              <h4>TechVerse</h4>
+              <p>Two days with industry leaders exploring AI/DS careers, building in public, and tech beyond pure coding.</p>
+              <span class="mini-date">July 3-4, 2025 | Online</span>
+            </article>
+            <article class="mini-event-item">
+              <span class="mini-badge">Completed</span>
+              <h4>Interaction with Dr. A.K. Nayak</h4>
+              <p>An exclusive interaction session on current trends in technology and innovation within academia.</p>
+              <span class="mini-date">February 12, 2025</span>
+            </article>
+            <article class="mini-event-item">
+              <span class="mini-badge">Completed</span>
+              <h4>Responsible AI: Problems &amp; Prospects</h4>
+              <p>A thought-provoking talk on operationalizing responsible AI and post-training challenges in modern AI systems.</p>
+              <span class="mini-date">2025</span>
+            </article>
+          </div>
         </div>
-        
-        <div class="about-content">
-            <div class="about-top">
-                <div class="about-logo-container">
-                    <img src="media/csisaulogo.jpg" alt="CSI SAU Logo" class="about-logo">
-                </div>
-                <div class="about-text">
-                    <!-- Remove section-header class from About Us -->
-                    <h2>About Us</h2>
-                    <p>
-                        The CSI-SAU Student Chapter is South Asian University's dynamic hub for technology and innovation. We are a passionate community of student developers, coders, and creators dedicated to building a vibrant tech culture. We connect our members with the future of computer science by hosting cutting-edge workshops, high-energy coding competitions, and insightful guest lectures from industry leaders.
-                    
-                    </p>
-                     <p class="affiliation-statement">
-        Officially affiliated with the 
-        <a href="https://www.csiindia.org/" target="_blank" class="suave-link">
-            <span class="link-text">Computer Society of India</span>
-            <span class="link-trail">↗</span>
-        </a>
-    </p>
-    
-                </div>
-            </div>
-            <div class="about-certificate-container">
-                <h3>Official Recognition</h3>
-                <img src="media/certificate.jpg" loading="lazy" alt="CSI SAU Certificate" class="about-certificate">
-            </div>
+      </section>
+
+      <section id="contact" class="contact-section">
+        <div class="section-heading" data-reveal>
+          <p class="eyebrow">Let's connect</p>
+          <h2>Contact Us</h2>
         </div>
-    </section>
-
-    <section id="team" class="full-screen-section">
-        <div class="team-container">
-            <h2 class="section-header"><span class="team-glitch" data-text="Our Team">Our Team</span></h2>
-            
-            <!-- Leadership Section -->
-            <div class="team-category">
-                <h3>Leadership</h3>
-                <div class="team-row">
-                    <!-- Dean -->
-                    <div class="leadership-card">
-                        <div class="leadership-img">
-                            <img src="media/pmuhuri.jpg" 
-                                onerror="this.style.display='none'" 
-                                style="width: 100%; height: 100%; object-fit: cover; object-position: center 25%;">
-                           <!-- <div class="leadership-img-placeholder">
-                                <i src="media/pmuhuri.jpg" class="fas fa-user"></i>
-                            </div> -->
-                        </div>
-                        <div class="leadership-info">
-                            <h4>Dr. Pranab Muhuri</h4>
-                            <p>Dean</p>
-                            <a href="https://in.linkedin.com/in/pranab-muhuri-a5369221" class="linkedin-icon" target="_blank">
-                                <img src="media/linkedinlogo.png" alt="LinkedIn">
-                            </a>
-                        </div>
-                    </div>
-                    
-                    <!-- Associate Dean -->
-                    <div class="leadership-card">
-                        <div class="leadership-img">
-                            <img src="media/rrastogi.jpeg" 
-                                onerror="this.style.display='none'" 
-                                
-                                style="width: 100%; height: 100%; object-fit: cover; transform: scale(1.3); object-position: center 25%;">
-                            
-                        </div>
-                        <div class="leadership-info">
-                            <h4>Dr. Reshma Rastogi</h4>
-                            <p>Associate Dean</p>
-                            <a href="https://in.linkedin.com/in/dr-reshma-rastogi-nee-khemchandani-743716a?trk=people-guest_people_search-card" class="linkedin-icon" target="_blank">
-                                <img src="media/linkedinlogo.png" alt="LinkedIn">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Faculty Advisors Section -->
-            <div class="team-category">
-                <h3>Faculty Advisors</h3>
-                <div class="team-row">
-                    <!-- Chief Branch Counsellor -->
-                    <div class="leadership-card">
-                        <div class="leadership-img">
-                            <img src="media/sssingh.jpeg" 
-                                onerror="this.style.display='none'" 
-                                style="width: 100%; height: 100%; object-fit: cover; object-position: center 15%;">
-                        </div>
-                        <div class="leadership-info">
-                            <h4>Dr. Shashank Sheshar Singh</h4>
-                            <p>Chief Branch Counsellor</p>
-                            <a href="https://in.linkedin.com/in/drshashankssingh" class="linkedin-icon" target="_blank">
-                                <img src="media/linkedinlogo.png" alt="LinkedIn">
-                            </a>
-                        </div>
-                    </div>
-                    
-                    <!-- Faculty Advisor 2 -->
-                    <div class="leadership-card">
-                        <div class="leadership-img">
-                            <img src="media/tseth.jpg" 
-                                onerror="this.style.display='none'" 
-                                style="width: 100%; height: 100%; object-fit: cover; ">
-                        </div>
-                        <div class="leadership-info">
-                            <h4>Dr. Taniya Seth</h4>
-                            <p>Faculty Advisor</p>
-                            <a href="https://in.linkedin.com/in/taniyaseth?trk=people-guest_people_search-card" class="linkedin-icon" target="_blank">
-                                <img src="media/linkedinlogo.png" alt="LinkedIn">
-                            </a>
-                        </div>
-                    </div>
-                    
-                    <!-- Faculty Advisor 3 -->
-                    <div class="leadership-card">
-                        <div class="leadership-img">
-                            <img src="media/abhamini.jpg" 
-                                onerror="this.style.display='none'" 
-                                style="width: 100%; height: 100%; object-fit: cover; ">
-                        </div>
-                        <div class="leadership-info">
-                            <h4>Dr. Ashwini B.</h4>
-                            <p>Faculty Advisor</p>
-                            <a href="https://in.linkedin.com/in/ashwini-bhamini" class="linkedin-icon" target="_blank">
-                                <img src="media/linkedinlogo.png" alt="LinkedIn">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Student President -->
-            <div class="team-category">
-                <h3>The Crew</h3>
-                <div class="team-row">
-                    <div class="leadership-card president-card">
-                        <div class="leadership-img">
-                            <img src="media/syadav.jpg" 
-                                onerror="this.style.display='none'" 
-                                style="width: 100%; height: 100%; object-fit: cover; object-position: center 10%;">
-                        </div>
-                        <div class="leadership-info">
-                            <h4>Shubham Yadav</h4>
-                            <p>Student Branch President</p>
-                            <a href="https://in.linkedin.com/in/shyadav1011" class="linkedin-icon" target="_blank">
-                                <img src="media/linkedinlogo.png" alt="LinkedIn">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Teams Section -->
-            <div class="team-category">
-                <!--<h3>Our Teams</h3> commented until further notice -->
-                <div class="team-cards-container">
-                    <!-- Technical Team -->
-                    <div class="team-card technical">
-                        <div class="team-content">
-                           <!-- <h2 class="team-title">Technical</h2>-->
-                            <div class="explore-container" data-team="technical">
-                                <div class="explore-bottom"></div>
-                                <div class="explore-cover explore-cut"></div>
-                                <div class="explore-text-container">
-                                    <div class="explore-text explore-text-dark">EXPLORE</div>
-                                </div>
-                                <div class="explore-text-container explore-cut">
-                                    <div class="explore-text">EXPLORE</div>
-                                </div>
-                                <div class="explore-overlay"></div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Research & Development -->
-                    <div class="team-card research">
-                        <div class="team-content">
-                           <!-- <h2 class="team-title title-small">Research & Development</h2>-->
-                            <div class="explore-container" data-team="research">
-                                <div class="explore-bottom"></div>
-                                <div class="explore-cover explore-cut"></div>
-                                <div class="explore-text-container">
-                                    <div class="explore-text explore-text-dark">EXPLORE</div>
-                                </div>
-                                <div class="explore-text-container explore-cut">
-                                    <div class="explore-text">EXPLORE</div>
-                                </div>
-                                <div class="explore-overlay"></div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Finance -->
-                    <div class="team-card finance">
-                        <div class="team-content">
-                            <!--<h2 class="team-title">Finance</h2>-->
-                            <div class="explore-container" data-team="finance">
-                                <div class="explore-bottom"></div>
-                                <div class="explore-cover explore-cut"></div>
-                                <div class="explore-text-container">
-                                    <div class="explore-text explore-text-dark">EXPLORE</div>
-                                </div>
-                                <div class="explore-text-container explore-cut">
-                                    <div class="explore-text">EXPLORE</div>
-                                </div>
-                                <div class="explore-overlay"></div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Design & Media -->
-                    <div class="team-card design">
-                        <div class="team-content">
-                          <!--  <h2 class="team-title">Design & Media</h2>-->
-                            <div class="explore-container" data-team="design">
-                                <div class="explore-bottom"></div>
-                                <div class="explore-cover explore-cut"></div>
-                                <div class="explore-text-container">
-                                    <div class="explore-text explore-text-dark">EXPLORE</div>
-                                </div>
-                                <div class="explore-text-container explore-cut">
-                                    <div class="explore-text">EXPLORE</div>
-                                </div>
-                                <div class="explore-overlay"></div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Public Relations -->
-                    <div class="team-card pr">
-                        <div class="team-content">
-                           <!-- <h2 class="team-title">Public Relations</h2>-->
-                            <div class="explore-container" data-team="pr">
-                                <div class="explore-bottom"></div>
-                                <div class="explore-cover explore-cut"></div>
-                                <div class="explore-text-container">
-                                    <div class="explore-text explore-text-dark">EXPLORE</div>
-                                </div>
-                                <div class="explore-text-container explore-cut">
-                                    <div class="explore-text">EXPLORE</div>
-                                </div>
-                                <div class="explore-overlay"></div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Event Management -->
-                    <div class="team-card events">
-                        <div class="team-content">
-                           <!-- <h2 class="team-title title-small">Event
-                              Management</h2>-->
-                            <div class="explore-container" data-team="events">
-                                <div class="explore-bottom"></div>
-                                <div class="explore-cover explore-cut"></div>
-                                <div class="explore-text-container">
-                                    <div class="explore-text explore-text-dark">EXPLORE</div>
-                                </div>
-                                <div class="explore-text-container explore-cut">
-                                    <div class="explore-text">EXPLORE</div>
-                                </div>
-                                <div class="explore-overlay"></div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Documentation & Outreach -->
-                    <div class="team-card documentation-outreach">
-                        <div class="team-content">
-                            <!--<h2 class="team-title">Docs & Outreach</h2>-->
-                            <div class="explore-container" data-team="documentation-outreach">
-                                <div class="explore-bottom"></div>
-                                <div class="explore-cover explore-cut"></div>
-                                <div class="explore-text-container">
-                                    <div class="explore-text explore-text-dark">EXPLORE</div>
-                                </div>
-                                <div class="explore-text-container explore-cut">
-                                    <div class="explore-text">EXPLORE</div>
-                                </div>
-                                <div class="explore-overlay"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="contact-grid" data-reveal>
+          <div class="contact-card info-card"><h3>Address</h3><p>South Asian University<br />Rajpur Road<br />Maidan Garhi<br />New Delhi 110 068</p></div>
+          <div class="contact-card info-card"><h3>Email</h3><p><a href="mailto:csi@sau.int">csi@sau.int</a></p></div>
+          <div class="contact-card info-card"><h3>Follow Us</h3><div class="social-list"><a href="https://www.instagram.com/csi_sau/" target="_blank" rel="noreferrer"><i class="fab fa-instagram"></i> Instagram</a><a href="https://www.linkedin.com/company/csi-sau-student-chapter/" target="_blank" rel="noreferrer"><i class="fab fa-linkedin"></i> LinkedIn</a></div></div>
         </div>
-    </section>
-    
-    <section id="events" class="full-screen-section">
-        <div class="events-container">
-            <h2 class="section-header">Events</h2>
+        <form class="contact-form" action="https://formsubmit.co/csi@sau.int" method="POST" data-reveal>
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="text" name="name" placeholder="Your Name" required />
+          <input type="email" name="email" placeholder="Your Email" required />
+          <textarea name="query" rows="5" placeholder="Your Query" required></textarea>
+          <button type="submit">Send Message</button>
+        </form>
+      </section>
+    </main>
 
-            <div class="events-layout">
-                <article class="events-module">
-                    <div class="events-module-head">
-                        <h3>Flagship Events</h3>
-                        <p>Our premier competitions and large-scale showcases that define CSI-SAU's presence.</p>
-                    </div>
-
-                    <div class="events-grid major-grid">
-                        <article class="event-card major-event-card upcoming-flagship-card">
-                            <div class="event-banner upcoming-flagship-banner">
-                                <span class="event-tier">UPCOMING</span>
-                                <h4>Next Major Event</h4>
-                            </div>
-
-                            <div class="event-content">
-                                <div class="event-title-row">
-                                    <h5>Coming This Year</h5>
-                                </div>
-                                <p class="event-date-time">Announcement Soon</p>
-                                <p class="event-description">
-                                    Exciting new flagship event in the works. Watch us transform ideas into innovation through competition, collaboration, and cutting-edge problem solving. Stay tuned!
-                                </p>
-                                <button class="event-register-btn" disabled>Details Coming</button>
-                            </div>
-                        </article>
-
-                        <article class="event-card major-event-card">
-                            <div class="event-banner syntax-banner">
-                                <span class="event-tier">OVER</span>
-                                <h4>SyntaX</h4>
-                            </div>
-
-                            <div class="event-content">
-                                <div class="event-title-row">
-                                    <h5>SyntaX 2026</h5>
-                                </div>
-                                <p class="event-date-time">January 27th, 2026 | 10:00 AM IST</p>
-                                <p class="event-description">
-                                    Our annual coding competition featuring multi-round problem solving, intense algorithmic challenges, and optimization battles where top coders compete for championship glory.
-                                </p>
-                                <button class="event-register-btn" disabled>Registration Closed</button>
-                            </div>
-                        </article>
-
-                        <article class="event-card major-event-card">
-                            <div class="event-banner avishkar-banner">
-                                <span class="event-tier">OVER</span>
-                                <h4>AvishkarX</h4>
-                            </div>
-
-                            <div class="event-content">
-                                <div class="event-title-row">
-                                    <h5>AvishkarX 2025</h5>
-                                </div>
-                                <p class="event-date-time">November 14th-15th, 2025 | 9:30 AM IST</p>
-                                <p class="event-description">
-                                    Our flagship ideathon where teams pitch innovative tech solutions to real-world problems through rapid brainstorming, mentorship sessions, and live presentations.
-                                </p>
-                                <button class="event-register-btn" disabled>Registration Closed</button>
-                            </div>
-                        </article>
-                    </div>
-                </article>
-
-                <article class="events-module">
-                    <div class="events-module-head">
-                        <h3>Mini Events</h3>
-                        <p>Focused sessions, expert talks, and community learning activities.</p>
-                    </div>
-
-                    <div class="events-grid minor-grid">
-                        <article class="event-card minor-event-card upcoming-mini-card">
-                            <div class="event-banner minor-banner-3-upcoming">
-                                <span class="event-tier">UPCOMING</span>
-                                <h4>TechVerse</h4>
-                            </div>
-
-                            <div class="event-content">
-                                <div class="event-title-row">
-                                    <h5>TechVerse: Explore Tech Beyond Coding</h5>
-                                </div>
-                                <p class="event-date-time">July 3–4, 2025 &nbsp;|&nbsp; 6:00 PM IST &nbsp;|&nbsp; Online (Google Meet)</p>
-                                <p class="event-description">
-                                    Two days with industry leaders — a Data Scientist from RBML's AI Centre of Excellence, a Google Women Techmakers Ambassador, and a researcher from LIGHTS — covering AI/DS careers, building in public, and interdisciplinary tech beyond pure programming.
-                                </p>
-                                <a class="event-register-btn event-register-btn-active" href="https://lu.ma/d8v5vw7v" target="_blank">Register Now</a>
-                            </div>
-                        </article>
-
-                        <article class="event-card minor-event-card">
-                            <div class="event-banner minor-banner-1">
-                                <span class="event-tier">OVER</span>
-                                <h4>Interaction Session</h4>
-                            </div>
-
-                            <div class="event-content">
-                                <div class="event-title-row">
-                                    <h5>Interaction with Dr. A.K. Nayak</h5>
-                                </div>
-                                <p class="event-date-time">February 12th, 2025</p>
-                                <p class="event-description">
-                                    An exclusive interaction session with Dr. A.K. Nayak, featuring insightful discussions on current trends in technology and innovation within academia.
-                                </p>
-                                <button class="event-register-btn" disabled>Completed</button>
-                            </div>
-                        </article>
-
-                        <article class="event-card minor-event-card">
-                            <div class="event-banner minor-banner-2">
-                                <span class="event-tier">OVER</span>
-                                <h4>Expert Talk</h4>
-                            </div>
-
-                            <div class="event-content">
-                                <div class="event-title-row">
-                                    <h5>Responsible AI: Problems & Prospects</h5>
-                                </div>
-                                <p class="event-date-time">2025</p>
-                                <p class="event-description">
-                                    A thought-provoking talk by Atmadeep Ghoshal (Co-founder of Ataraxia Research, PhD Candidate at King's College London) on operationalizing responsible AI and post-training challenges in modern AI systems.
-                                </p>
-                                <button class="event-register-btn" disabled>Completed</button>
-                            </div>
-                        </article>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section>
-    
-    <section id="contact" class="contact-section">
-    <canvas id="contact-particles"></canvas>
-
-    <div class="contact-content">
-
-        <h2 class="contact-title">
-    <span class="contact-accent"></span>
-    Contact Us
-    <span class="contact-accent"></span>
-</h2>
-
-
-        <div class="contact-grid">
-
-            <div class="contact-info">
-                <div class="info-block">
-                    <h3>ADDRESS</h3>
-                    <p>
-                        South Asian University<br>
-                        Rajpur Road<br>
-                        Maidan Garhi<br>
-                        New Delhi 110 068<br>
-                    </p>
-                </div>
-
-                <div class="info-block">
-                    <h3>EMAIL</h3>
-                    <p><a href="mailto:csi@sau.int" style="color: white;" onclick="this.style.color='#D4AF37'" >csi@sau.int</a></p>
-                </div>
-            </div>
-            <div class="info-block">
-                    <h3>FOLLOW US</h3>
-                    <div class="social-icons">
-                        <a href="https://www.instagram.com/csi_sau/?e=f31cb10d-c139-43df-9076-5f4ea55c541e&g=5" target="_blank" class="social-icon">
-                            <i class="fab fa-instagram"></i>
-                            <span>Instagram</span>
-                        </a>
-                        <a href="https://www.linkedin.com/company/csi-sau-student-chapter/" target="_blank" class="social-icon">
-                            <i class="fab fa-linkedin"></i>
-                            <span>LinkedIn</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <form style="margin-top:30px;" action="https://formsubmit.co/csi@sau.int" 
-                  method="POST" class="contact-form">
-
-                <input type="hidden" name="_captcha" value="false">
-
-                <input type="text" name="name" placeholder="Your Name" required>
-                <input 
-    type="email" 
-    name="email" 
-    placeholder="Your Email" 
-    required
-    pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[A-Za-z]{2,}$"
-    title="Enter a valid email address (example: user@example.com)"
->
-
-                <textarea name="query" placeholder="Your Query" rows="5" required></textarea>
-
-                <button type="submit">SEND MESSAGE</button>
-
-            </form>
-        </div>
-    </div>
-</section>
-<section id="footer" class="footer-section" style="color:#fff;" align="center">
-    &copy;  2026    -   CSI South Asian University Student Chapter
-</section>
-
-    <svg class="sr-only">
-        <filter id="spotlight">
-            <feGaussianBlur
-                in="SourceAlpha"
-                stdDeviation="3"
-                result="blur"
-            ></feGaussianBlur>
-            <feSpecularLighting
-                result="lighting"
-                in="blur"
-                surfaceScale="5"
-                specularConstant="0.5"
-                specularExponent="120"
-                lighting-color="#ffffff"
-            >
-                <fePointLight x="50" y="50" z="300"></fePointLight>
-            </feSpecularLighting>
-            <feComposite
-                in="lighting"
-                in2="SourceAlpha"
-                operator="in"
-                result="composite"
-            ></feComposite>
-            <feComposite
-                in="merged"
-                in2="composite"
-                operator="arithmetic"
-                k1="0"
-                k2="1"
-                k3="1"
-                k4="0"
-                result="litPaint"
-            ></feComposite>
-        </filter>
-        <filter id="ambience">
-            <feGaussianBlur
-                in="SourceAlpha"
-                stdDeviation="3"
-                result="blur"
-            ></feGaussianBlur>
-            <feSpecularLighting
-                result="lighting"
-                in="blur"
-                surfaceScale="5"
-                specularConstant="0.5"
-                specularExponent="120"
-                lighting-color="#ffffff"
-            >
-                <fePointLight x="50" y="50" z="300"></fePointLight>
-            </feSpecularLighting>
-            <feComposite
-                in="lighting"
-                in2="SourceAlpha"
-                operator="in"
-                result="composite"
-            ></feComposite>
-            <feComposite
-                in="merged"
-                in2="composite"
-                operator="arithmetic"
-                k1="0"
-                k2="1"
-                k3="1"
-                k4="0"
-                result="litPaint"
-            ></feComposite>
-        </filter>
-    </svg>
-    <script src="https://unpkg.com/powerglitch@latest/dist/powerglitch.min.js"></script>
-    <script>
-        const teamGlitchEl = document.querySelector('.team-glitch')
-        const teamSectionEl = document.querySelector('#team')
-
-        const glitchController = PowerGlitch.glitch('.team-glitch', {
-            playMode: 'manual',
-            glitchTimeMin: 200,
-            glitchTimeMax: 400,
-            glitchAmount: 2,
-            hideOverflow: false
-        })
-        let hasAutoGlitched = false
-
-        if (teamGlitchEl && teamSectionEl && glitchController) {
-            const stopGlitchAfterBurst = (durationMs = 420) => {
-                window.setTimeout(() => {
-                    glitchController.stopGlitch()
-                }, durationMs)
-            }
-
-            teamGlitchEl.addEventListener('mouseenter', () => {
-                glitchController.startGlitch()
-            })
-
-            teamGlitchEl.addEventListener('mouseleave', () => {
-                glitchController.stopGlitch()
-            })
-
-            const triggerAutoGlitch = () => {
-                if (hasAutoGlitched) return
-                hasAutoGlitched = true
-
-                glitchController.startGlitch()
-                stopGlitchAfterBurst(420)
-            }
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting && entry.intersectionRatio >= 0.45) {
-                        triggerAutoGlitch()
-                        observer.disconnect()
-                    }
-                })
-            }, {
-                threshold: [0.45]
-            })
-
-            observer.observe(teamSectionEl)
-        }
-    </script>
-    <script type="module" src="script.js"></script>
-</body>
+    <footer class="site-footer"><p>2026 CSI South Asian University Student Chapter</p></footer>
+    <div class="modal-overlay" id="team-modal" aria-hidden="true"><div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modal-title"><button type="button" class="modal-close" aria-label="Close team details">Close</button><div id="modal-content"></div></div></div>
+    <div class="modal-overlay certificate-overlay" id="certificate-modal" aria-hidden="true"><div class="modal-panel certificate-panel" role="dialog" aria-modal="true" aria-labelledby="certificate-title"><button type="button" class="modal-close certificate-close" aria-label="Close certificate view">Close</button><div class="certificate-viewport"><img src="media/certificate.jpg" alt="CSI SAU certificate" /></div></div></div>
+    <script src="script.js"></script>
+  </body>
 </html>
