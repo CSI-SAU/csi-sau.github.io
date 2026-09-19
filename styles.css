@@ -17,7 +17,7 @@
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: hidden; overflow-x: clip; }
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
@@ -44,14 +44,17 @@ body::before {
   opacity: 0.75;
 }
 
-main, header, footer { position: relative; z-index: 1; }
+main, footer { position: relative; z-index: 1; }
 
 .site-header {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 20;
-  width: min(1180px, calc(100vw - 18px));
-  margin: 0 auto;
+  width: 100%;
+  max-width: 1180px;
+  margin-inline: auto;
   padding: 14px 18px;
   display: flex;
   align-items: center;
@@ -62,15 +65,18 @@ main, header, footer { position: relative; z-index: 1; }
   border: 1px solid var(--line);
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
   border-radius: 14px;
-  transition: width 0.28s ease, margin 0.28s ease, border-radius 0.28s ease, box-shadow 0.28s ease, transform 0.28s ease;
+  transition:
+    max-width 0.32s cubic-bezier(0.4, 0, 0.2, 1),
+    border-radius 0.32s cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 0.32s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.32s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .site-header.scrolled {
-  width: 100%;
-  margin: 0;
+  max-width: 100%;
   border-radius: 0;
-  border-top: none;
-  border-left: none;
-  border-right: none;
+  border-top-color: transparent;
+  border-left-color: transparent;
+  border-right-color: transparent;
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
 }
 
@@ -171,11 +177,13 @@ main, header, footer { position: relative; z-index: 1; }
 .menu-button.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
 .mobile-menu {
-  position: sticky;
-  top: 72px;
+  position: fixed;
+  top: 80px;
+  left: 0;
+  right: 0;
   z-index: 15;
   width: min(1180px, calc(100vw - 18px));
-  margin: 6px auto 0;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: stretch;
@@ -804,9 +812,9 @@ section {
 @media (max-width: 560px) {
   body { font-size: 15px; }
   .site-header {
-    width: min(100vw - 16px, 100%);
-    margin-top: 10px;
+    max-width: 100%;
     padding: 12px 14px;
+    border-radius: 0;
   }
   .mobile-menu { width: min(100vw - 16px, 100%); }
   section { width: min(100vw - 18px, 100%); }
