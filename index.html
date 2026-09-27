@@ -73,8 +73,9 @@
 
     <main>
       <section id="home" class="hero-section">
-        <video id="bg-video" autoplay muted loop playsinline poster="media/csisaulogo.jpg">
-          <source src="https://cdn.pixabay.com/video/2019/10/10/27725-365890983_large.mp4" type="video/mp4" />
+        <div class="hero-backdrop" aria-hidden="true"></div>
+        <video id="bg-video" autoplay muted loop playsinline>
+          <source src="https://cdn.pixabay.com/video/2019/10/10/27725-365890983_large.mp4" type="video/mp4" media="(min-width: 861px)" />
         </video>
         <div class="hero-overlay"></div>
         <div class="hero-content" data-reveal>
@@ -123,34 +124,41 @@
           <article class="person-card leader-card advisor-card"><img src="media/abhamini.jpg" alt="Dr. Ashwini Bhamini" loading="lazy" /><div class="person-info"><h3>Dr. Ashwini Bhamini</h3><p>Faculty Advisor</p></div></article>
         </div>
         <div class="team-grid" data-reveal>
-          <article class="team-card technical">
-            <img src="media/tech.jpeg" alt="Technical team emblem" loading="lazy" width="500" height="500" />
-            <button type="button" class="explore-btn" data-team="technical">View team<span class="btn-arrow" aria-hidden="true">→</span></button>
-          </article>
-          <article class="team-card research">
-            <img src="media/rnd.jpeg" alt="Research and Development team emblem" loading="lazy" width="500" height="500" />
-            <button type="button" class="explore-btn" data-team="research">View team<span class="btn-arrow" aria-hidden="true">→</span></button>
-          </article>
-          <article class="team-card finance">
-            <img src="media/fin.jpeg" alt="Finance team emblem" loading="lazy" width="500" height="500" />
-            <button type="button" class="explore-btn" data-team="finance">View team<span class="btn-arrow" aria-hidden="true">→</span></button>
-          </article>
-          <article class="team-card design">
-            <img src="media/des.jpeg" alt="Design and Media team emblem" loading="lazy" width="500" height="500" />
-            <button type="button" class="explore-btn" data-team="design">View team<span class="btn-arrow" aria-hidden="true">→</span></button>
-          </article>
-          <article class="team-card public-relations">
-            <img src="media/pr.jpeg" alt="Public Relations team emblem" loading="lazy" width="500" height="500" />
-            <button type="button" class="explore-btn" data-team="pr">View team<span class="btn-arrow" aria-hidden="true">→</span></button>
-          </article>
-          <article class="team-card event-management">
-            <img src="media/em.jpeg" alt="Event Management team emblem" loading="lazy" width="500" height="500" />
-            <button type="button" class="explore-btn" data-team="events">View team<span class="btn-arrow" aria-hidden="true">→</span></button>
-          </article>
-          <article class="team-card docs">
-            <img src="media/doc.jpeg" alt="Documentation and Outreach team emblem" loading="lazy" width="500" height="500" />
-            <button type="button" class="explore-btn" data-team="documentation-outreach">View team<span class="btn-arrow" aria-hidden="true">→</span></button>
-          </article>
+          <button type="button" class="team-card technical" data-team="technical" aria-label="View the Technical team">
+            <span class="team-card-index" aria-hidden="true">01</span>
+            <img src="media/tech.jpeg" alt="" loading="lazy" width="500" height="500" />
+            <span class="team-card-name">Technical</span>
+          </button>
+          <button type="button" class="team-card research" data-team="research" aria-label="View the Research and Development team">
+            <span class="team-card-index" aria-hidden="true">02</span>
+            <img src="media/rnd.jpeg" alt="" loading="lazy" width="500" height="500" />
+            <span class="team-card-name">R&amp;D</span>
+          </button>
+          <button type="button" class="team-card finance" data-team="finance" aria-label="View the Finance team">
+            <span class="team-card-index" aria-hidden="true">03</span>
+            <img src="media/fin.jpeg" alt="" loading="lazy" width="500" height="500" />
+            <span class="team-card-name">Finance</span>
+          </button>
+          <button type="button" class="team-card design" data-team="design" aria-label="View the Design and Media team">
+            <span class="team-card-index" aria-hidden="true">04</span>
+            <img src="media/des.jpeg" alt="" loading="lazy" width="500" height="500" />
+            <span class="team-card-name">Design &amp; Media</span>
+          </button>
+          <button type="button" class="team-card public-relations" data-team="pr" aria-label="View the Public Relations team">
+            <span class="team-card-index" aria-hidden="true">05</span>
+            <img src="media/pr.jpeg" alt="" loading="lazy" width="500" height="500" />
+            <span class="team-card-name">Public Relations</span>
+          </button>
+          <button type="button" class="team-card event-management" data-team="events" aria-label="View the Event Management team">
+            <span class="team-card-index" aria-hidden="true">06</span>
+            <img src="media/em.jpeg" alt="" loading="lazy" width="500" height="500" />
+            <span class="team-card-name">Event Management</span>
+          </button>
+          <button type="button" class="team-card docs" data-team="documentation-outreach" aria-label="View the Documentation and Outreach team">
+            <span class="team-card-index" aria-hidden="true">07</span>
+            <img src="media/doc.jpeg" alt="" loading="lazy" width="500" height="500" />
+            <span class="team-card-name">Docs &amp; Outreach</span>
+          </button>
         </div>
       </section>
 
@@ -173,7 +181,7 @@
           <span class="event-go" aria-hidden="true">→</span>
         </a>
 
-        <p class="event-index-label">Competitions, forums &amp; sessions</p>
+        <p class="event-index-label">Competitions, showcases &amp; sessions</p>
         <ul class="event-index" data-reveal>
           <li>
             <a href="events.html">
@@ -209,9 +217,9 @@
           </li>
           <li>
             <a href="events.html">
-              <span class="event-when">Series</span>
-              <span class="event-what"><strong>Tech-Symposium</strong><em>Conversations, insights, and community exchange around research and emerging technology.</em></span>
-              <span class="event-kind">Forum</span>
+              <span class="event-when">May 1, 2026</span>
+              <span class="event-what"><strong>Tech-Symposium</strong><em>Students showcased their best projects to the university.</em></span>
+              <span class="event-kind">Showcase</span>
               <span class="event-go" aria-hidden="true">→</span>
             </a>
           </li>

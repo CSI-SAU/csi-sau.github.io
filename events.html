@@ -17,6 +17,8 @@
     <meta name="twitter:title" content="CSI SAU Events | AavishkarX, SyntaX, Tech-Symposium" />
     <meta name="twitter:description" content="Browse event highlights, galleries, and flagship initiatives from CSI SAU at South Asian University." />
     <meta name="twitter:image" content="https://csi-sau.github.io/media/csisaulogo.jpg" />
+    <link rel="icon" type="image/png" href="media/csi-badge.png" />
+    <link rel="apple-touch-icon" href="media/csi-badge.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet" />
@@ -38,7 +40,7 @@
   </head>
   <body class="events-page">
     <header class="site-header">
-      <div class="brand-wrap"><a href="index.html" class="brand-mark" aria-label="CSI SAU home">CSI SAU</a></div>
+      <div class="brand-wrap"><a href="index.html" class="brand-mark" aria-label="CSI SAU home"><img src="media/csi-badge.jpg" alt="" width="160" height="160" /><span>CSI SAU</span></a></div>
       <nav class="top-nav" aria-label="Main navigation">
         <a href="index.html">Home</a>
         <a href="index.html#about">About</a>
@@ -64,11 +66,12 @@
     <main class="events-main">
       <section class="page-hero">
         <div class="eyebrow">CSI SAU Highlights</div>
-        <h1>Big ideas, bold execution, and moments worth revisiting.</h1>
-        <p>From ideation challenges and coding battles to symposium conversations, our flagship events capture the energy of a student community building for the future.</p>
+        <h1 class="sr-only">Big ideas, bold execution, and moments worth revisiting.</h1>
+        <div class="block-board" aria-hidden="true"><canvas id="idea-board"></canvas></div>
+        <p>From ideation challenges and coding battles to student project showcases, our flagship events capture the energy of a community building for the future.</p>
       </section>
 
-      <section class="event-feature" id="aavishkarx-2025" data-event="aavishkarx">
+      <section class="event-feature" id="aavishkarx-2025" data-event="aavishkarx" data-reveal>
         <div class="event-copy">
           <div class="eyebrow">Flagship Event 2025</div>
           <h2>AavishkarX 2025</h2>
@@ -80,11 +83,11 @@
           </ul>
         </div>
         <div class="event-media">
-          <img src="media/AavishkarX 2025/Day1/IMG_20251114_170206.jpg" alt="AavishkarX audience and stage" loading="eager" />
+          <img src="media/AavishkarX 2025/Day1/IMG-20251114-WA0027.jpg" alt="AavishkarX day one stage" loading="eager" />
         </div>
       </section>
 
-      <section class="gallery-section" data-gallery-id="aavishkarx">
+      <section class="gallery-section" data-gallery-id="aavishkarx" data-reveal>
         <div class="section-header-row">
           <div>
             <div class="eyebrow">AavishkarX</div>
@@ -94,7 +97,7 @@
         <div class="gallery-grid" id="aavishkar-gallery"></div>
       </section>
 
-      <section class="event-feature" id="syntax-2026" data-event="syntaxx">
+      <section class="event-feature" id="syntax-2026" data-event="syntaxx" data-reveal>
         <div class="event-copy">
           <div class="eyebrow">Flagship Event 2026</div>
           <h2>SyntaX 2026</h2>
@@ -110,22 +113,22 @@
         </div>
       </section>
 
-      <section class="gallery-section" data-gallery-id="syntaxx">
+      <section class="gallery-section" data-gallery-id="syntaxx" data-reveal>
         <div class="section-header-row">
           <div><div class="eyebrow">SyntaX</div><h3>Competition moments</h3></div>
         </div>
         <div class="gallery-grid" id="syntax-gallery"></div>
       </section>
 
-      <section class="event-feature" id="tech-symposium" data-event="symposium">
+      <section class="event-feature" id="tech-symposium" data-event="symposium" data-reveal>
         <div class="event-copy">
-          <div class="eyebrow">Flagship Event Forum</div>
+          <div class="eyebrow">Student Project Showcase</div>
           <h2>Tech-Symposium</h2>
-          <p>The Tech-Symposium creates a platform for meaningful conversations at the intersection of technology, research, and career growth. It brings together students, faculty, and technical leaders for sessions that widen perspective and inspire deeper engagement with emerging systems and ideas.</p>
+          <p>Tech-Symposium gave students the stage to present their best work to the university — one showcase where the campus got to see the strongest student projects, from working prototypes to research demos, presented to faculty and peers.</p>
           <ul class="event-meta">
-            <li><strong>Focus:</strong> AI, research, systems, and tech careers</li>
-            <li><strong>Format:</strong> Talks, panels, and community exchange</li>
-            <li><strong>Experience:</strong> A shared space for learning and connection</li>
+            <li><strong>Date:</strong> May 1, 2026</li>
+            <li><strong>Format:</strong> Student project showcase</li>
+            <li><strong>Highlight:</strong> The university's best student projects on one stage</li>
           </ul>
         </div>
         <div class="event-media">
@@ -133,9 +136,9 @@
         </div>
       </section>
 
-      <section class="gallery-section" data-gallery-id="symposium">
+      <section class="gallery-section" data-gallery-id="symposium" data-reveal>
         <div class="section-header-row">
-          <div><div class="eyebrow">Tech-Symposium</div><h3>Learning and exchange</h3></div>
+          <div><div class="eyebrow">Tech-Symposium</div><h3>Project showcase moments</h3></div>
         </div>
         <div class="gallery-grid" id="symposium-gallery"></div>
       </section>

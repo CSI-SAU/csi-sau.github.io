@@ -19,6 +19,15 @@ const revealObserver = new IntersectionObserver((entries, observer) => {
 
 document.querySelectorAll('[data-reveal]').forEach((element) => revealObserver.observe(element));
 
+const bgVideo = document.getElementById('bg-video');
+if (bgVideo) {
+  const markPlaying = () => bgVideo.classList.add('is-playing');
+  bgVideo.addEventListener('playing', markPlaying, { once: true });
+  if (bgVideo.readyState >= 3 && !bgVideo.paused) markPlaying();
+  const playAttempt = bgVideo.play ? bgVideo.play() : null;
+  if (playAttempt && typeof playAttempt.catch === 'function') playAttempt.catch(() => {});
+}
+
 const mobileMenu = document.querySelector('.mobile-menu');
 const menuButton = document.querySelector('.menu-button');
 const siteHeader = document.querySelector('.site-header');
@@ -117,7 +126,7 @@ function renderModal(profileKey) {
   document.body.style.overflow = 'hidden';
 }
 
-document.querySelectorAll('.explore-btn').forEach((button) => {
+document.querySelectorAll('.team-card[data-team]').forEach((button) => {
   button.addEventListener('click', () => renderModal(button.dataset.team));
 });
 
